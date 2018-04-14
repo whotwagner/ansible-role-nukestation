@@ -1,0 +1,22 @@
+---
+
+- name: install nwipe
+  apt:
+          name: nwipe
+          state: present
+
+- name: copy wipedrive.sh
+  template:
+          src: wipedrive.sh.j2
+          dest: /usr/local/sbin/wipedrive.sh
+          mode: 0700
+          owner: root
+          group: root
+
+- name: copy udev-rule
+  copy:
+          src: usb-wipe.rules
+          dest: /etc/udev/rules.d/80-usb-wipe.rules
+          owner: root
+          group: root
+  notify: udevreload

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+LOGFILE="/var/log/wipedrive.log"
+
+if [ $# -ne 1 ]
+then
+	echo "No device given" >> $LOGFILE
+	exit 1
+else
+	DEVICE=$1
+fi
+
+nwipe --autonuke --nowait --nogui -l $LOGFILE $DEVICE
+

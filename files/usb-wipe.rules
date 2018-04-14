@@ -1,0 +1,1 @@
+ACTION=="add", KERNEL=="sd?", SUBSYSTEM=="block", ENV{ID_BUS}=="usb", RUN+="/usr/local/sbin/wipedrive.sh '%E{DEVNAME}'"
