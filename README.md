@@ -7,6 +7,29 @@ This role installs nwipe on Debian and places a udev-rule so that plugged usb-st
  * Ansible 2.1+ (might ork with prior versions too)
  * Debian-based linux-distribution(tested with freshly installed Raspbian)
 
+## Configuring Nukestation
+
+nukestation.sh is a simple Script that invokes nwipe. The configuration-files are based at /etc/nukestation. 
+
+### /etc/nukestation/nukestation.conf:
+
+The main-configuration file is located at /etc/nukestation/nukestation.conf. The following Variables can be set:
+ * LOGDIR="/var/log/nukestation"
+ * ENABLE_MAIL=0
+ * MAIL_FROM=root
+ * MAIL_TO=root
+ * METHOD=dodshort
+ * ROUNDS=1
+
+### /etc/nukestation/pre.d:
+
+All shell-scripts with the extension ".conf" that are located in /etc/nukestation/pre.d will be executed before nwipe starts.
+
+### /etc/nukestation/post.d:
+
+All shell-scripts with the extension ".conf" that are located in /etc/nukestation/post.d will be executed after nwipe stopped. 
+
+
 ## Configuration Variables
 
 ### nukestation_method
