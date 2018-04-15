@@ -1,3 +1,8 @@
 - name: udevreload
   shell: systemctl daemon-reload && udevadm control --reload
 
+- name: postmap-sasl
+  shell: postmap /etc/postfix/sasl_passwd
+                                        
+- name: postfix-restart
+  service: name=postfix state=restarted                                       

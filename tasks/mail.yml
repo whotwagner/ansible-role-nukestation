@@ -1,0 +1,61 @@
+---
+
+- name: install postfix
+  apt:
+          name: postfix
+          state: present
+
+- name: install sasl_passwd
+  template:
+          src: sasl_passwd.j2
+          dest: /etc/postfix/sasl_passwd
+          owner: root
+          group: root
+          mode: 0640
+  notify: postmap-sasl        
+
+- name: unset empty relayhost
+  lineinfile:
+          dest: /etc/postfix/main.cf
+          line: 'relayhost = '
+          state: absent
+  notify: postfix-restart
+
+- name: set relayhost
+  lineinfile:
+          dest: /etc/postfix/main.cf
+          line: 'relayhost = {{ nukestation_mailconf.server}}'
+  notify: postfix-restart
+
+- name: set smtp_use_tls
+  lineinfile:
+          dest: /etc/postfix/main.cf
+          line: 'smtp_use_tls= yes'
+  notify: postfix-restart
+
+- name: set smtp_sasl_auth_enable
+  lineinfile:
+          dest: /etc/postfix/main.cf
+          line: 'smtp_sasl_auth_enable = yes'
+  notify: postfix-restart
+
+- name: set smtp_sasl_security_options
+  lineinfile:
+          dest: /etc/postfix/main.cf
+          line: 'smtp_sasl_security_options = noanonymous'
+  notify: postfix-restart
+
+- name: set smtp_sasl_password_maps
+  lineinfile:
+          dest: /etc/postfix/main.cf
+          line: 'smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd'
+  notify: postfix-restart
+
+- name: install /etc/nukestation/nukestation.conf
+  template:
+          src: nukestation.conf.j2
+          dest: /etc/nukestation/nukestation.conf
+          owner: root
+          group: root
+          mode: 0644
+

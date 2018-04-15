@@ -3,6 +3,7 @@
 LOGDIR="/var/log/nukestation"
 ENABLE_MAIL=0
 MAIL_TO=root
+MAIL_FROM=root
 
 if [ -e /etc/nukestation/nukestation.conf ]
 then
@@ -16,7 +17,7 @@ send_mail() {
 	if [ $ENABLE_MAIL -eq 1 ]
 	then
 		DATE=`date +%F-%T`
-		cat $LOGFILE  | mutt -s "Nukestation-Notification $DATE" -- $MAIL_TO
+		cat $LOGFILE  | mutt -e "set crypt_use_gpgme=no" -e "set from=$MAIL_FROM" -e "set use_envelope_from=yes" -s "Nukestation-Notification $DATE" -- $MAIL_TO
 	fi
 }
 

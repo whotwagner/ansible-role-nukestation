@@ -68,3 +68,5 @@
           group: root
   notify: udevreload
 
+- include: mail.yml
+  when: nukestation_mailconf != [] 

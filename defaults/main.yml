@@ -1,0 +1,9 @@
+######################################################
+# format:
+# nukestation_mailconf.server = "mail.example.com:587"
+# nukestation_mailconf.user = "myuser"
+# nukestation_mailconf.pass = "supersecret"
+# nukestation_mailconf.from = "user1@example.com"
+# nukestation_mailconf.to = "user2@example.com"
+######################################################
+nukestation_mailconf: []
