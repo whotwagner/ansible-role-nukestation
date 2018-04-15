@@ -5,7 +5,7 @@ This role installs nwipe on Debian and places a udev-rule so that plugged usb-st
 ## Requirements
 
 - Ansible 2.1+ (might ork with prior versions too)
-- Debian-based linux-distribution
+- Debian-based linux-distribution(tested with freshly installed Raspbian)
 
 ## Playbook Examples
 
