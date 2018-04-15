@@ -1,6 +1,6 @@
 # Ansible Role: nukestation
 
-This role installs nwipe on Debian and places a udev-rule so that plugged usb-storages will be wiped automatically.
+This role installs [nwipe](https://github.com/martijnvanbrummelen/nwipe) on Debian and places a udev-rule so that plugged usb-storages will be wiped automatically.
 
 ## Requirements
 
