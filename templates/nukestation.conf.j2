@@ -1,3 +1,12 @@
+{% if nukestation_mailconf != [] %}
 ENABLE_MAIL=1
 MAIL_FROM={{nukestation_mailconf.from}}
 MAIL_TO={{nukestation_mailconf.to}}
+{% endif %}
+{% if nukestation_method is defined %}
+METHOD={{nukestation_method}}
+{% endif %}
+{% if nukestation_rounds is defined %}
+ROUNDS={{nukestation_rounds}}
+{% endif %}
+

@@ -4,6 +4,8 @@ LOGDIR="/var/log/nukestation"
 ENABLE_MAIL=0
 MAIL_TO=root
 MAIL_FROM=root
+METHOD=dodshort
+ROUNDS=1
 
 if [ -e /etc/nukestation/nukestation.conf ]
 then
@@ -51,7 +53,7 @@ run_wipe() {
 	trap 'echo "Error in run_wipe()" 
 	handle_error()' ERR
 
-nwipe --autonuke --nowait --nogui -l $LOGFILE $DEVICE 2>> $LOGFILE
+nwipe -m $METHOD -r $ROUNDS --autonuke --nowait --nogui -l $LOGFILE $DEVICE 2>> $LOGFILE
 }
 
 sleep 3s

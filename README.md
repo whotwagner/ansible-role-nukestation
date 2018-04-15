@@ -4,8 +4,42 @@ This role installs nwipe on Debian and places a udev-rule so that plugged usb-st
 
 ## Requirements
 
-- Ansible 2.1+ (might ork with prior versions too)
-- Debian-based linux-distribution(tested with freshly installed Raspbian)
+ * Ansible 2.1+ (might ork with prior versions too)
+ * Debian-based linux-distribution(tested with freshly installed Raspbian)
+
+## Configuration Variables
+
+### nukestation_method
+
+If nukestation_method is not defined the default method will be used. Valid methods are:
+
+ * dod522022m / dod
+ * dodshort / dod3pass (default)
+ * gutmann
+ * ops2
+ * random / prng / stream
+ * zero / quick
+
+Consider looking into the nwipe-manpage for more information.
+
+### nukestation_rounds
+
+If nukestation_rounds is not defined the default(one round) will be used.
+
+### nukestation_mailconf
+
+If nukestation_mailconf is not defined, no mail-notification will be installed. If nukestation_mailconf is defined postfix will be installed and configured to relay with sasl-authentication. Therefor the following variables are required:
+
+```
+  vars: 
+       nukestation_mailconf:
+                server: mail.example.conf:587
+                user: username@example.conf
+                pass: super-secret-password
+                from: from@example.com
+                to: to@example.com
+
+```
 
 ## Playbook Examples
 

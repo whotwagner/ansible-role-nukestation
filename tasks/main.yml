@@ -68,5 +68,14 @@
           group: root
   notify: udevreload
 
+- name: install /etc/nukestation/nukestation.conf
+  template:
+          src: nukestation.conf.j2
+          dest: /etc/nukestation/nukestation.conf
+          owner: root
+          group: root
+          mode: 0644
+
+
 - include: mail.yml
   when: nukestation_mailconf != [] 

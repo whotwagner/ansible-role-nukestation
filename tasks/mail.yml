@@ -51,11 +51,4 @@
           line: 'smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd'
   notify: postfix-restart
 
-- name: install /etc/nukestation/nukestation.conf
-  template:
-          src: nukestation.conf.j2
-          dest: /etc/nukestation/nukestation.conf
-          owner: root
-          group: root
-          mode: 0644
 
