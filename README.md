@@ -23,11 +23,20 @@ The main-configuration file is located at /etc/nukestation/nukestation.conf. The
 
 ### /etc/nukestation/pre.d:
 
-All shell-scripts with the extension ".conf" that are located in /etc/nukestation/pre.d will be executed before nwipe starts.
+All shell-scripts with the extension ".conf" that are located in /etc/nukestation/pre.d will be executed before nwipe starts. If you want to signal with a green led that the usb-disk can safely removed, then just make sure that the led(for example on gpio7) is high and place the following code at /etc/nukestation/pre.d/gpio_low.conf:
+ ```
+/usr/local/bin/gpio write 7 0
+ ```
+Note: [wiringpi](http://wiringpi.com/download-and-install/) is needed for this to work
 
 ### /etc/nukestation/post.d:
 
-All shell-scripts with the extension ".conf" that are located in /etc/nukestation/post.d will be executed after nwipe stopped. 
+All shell-scripts with the extension ".conf" that are located in /etc/nukestation/post.d will be executed after nwipe stopped. If you want to signal with a led that it is save to remove the usb-disk after the wipe-command, then simply place the following code at /etc/nukestation/post.d/gpio_high.conf:
+ ```
+/usr/local/bin/gpio write 7 1
+ ```
+
+Note: [wiringpi](http://wiringpi.com/download-and-install/) is needed for this to work
 
 
 ## Configuration Variables
