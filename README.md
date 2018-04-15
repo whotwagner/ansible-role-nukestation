@@ -38,6 +38,11 @@ All shell-scripts with the extension ".conf" that are located in /etc/nukestatio
 
 Note: [wiringpi](http://wiringpi.com/download-and-install/) is needed for this to work
 
+## Installation
+
+```
+$ ansible-galaxy install whotwagner.nukestation
+```
 
 ## Configuration Variables
 
@@ -88,7 +93,7 @@ The following playbook will install a simple nukestation-configuration. Notifica
 ---
 - hosts: localhost
   roles:
-        - nukestation
+        - whotwagner.nukestation
 ```
 
 It's also possible to set the method and/or the rounds:
@@ -97,7 +102,7 @@ It's also possible to set the method and/or the rounds:
 ---
 - hosts: localhost
   roles:
-        - nukestation
+        - whotwagner.nukestation
   vars:
         nukestation_method: quick
         nukestation_rounds: 2
@@ -111,7 +116,7 @@ The following playbook will install nukestation together with a freshly installe
 ```
 - hosts: localhost
   roles:
-        - nukestation
+        - whotwagner.nukestation
   vars:
         nukestation_mailconf:
                 server: mail.example.conf:587
