@@ -113,6 +113,16 @@ The following playbook will install nukestation together with a freshly installe
 
 ```
 
+# Stopping a running wipetask
+
+Consider using systemd for stopping/canceling running tasks:
+
+```
+pi@raspberrypi:~/roles/nukestation $ sudo systemctl list-units | grep nuke
+nukestation@-dev-sda.service                                                                                       loaded activating start     start Wipes hard drives                                                                        
+system-nukestation.slice                                                                                           loaded active     active          system-nukestation.slice                                                                 
+pi@raspberrypi:~/roles/nukestation $ sudo systemctl stop nukestation@-dev-sda.service
+```
 
 # Licence
 
