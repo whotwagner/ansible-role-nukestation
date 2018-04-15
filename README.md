@@ -1,4 +1,4 @@
-# Ansible Role: maradns
+# Ansible Role: nukestation
 
 This role installs nwipe on Debian and places a udev-rule so that plugged usb-storages will be wiped automatically.
 
