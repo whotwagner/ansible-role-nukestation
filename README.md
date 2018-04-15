@@ -59,6 +59,19 @@ The following playbook will install a simple nukestation-configuration. Notifica
         - nukestation
 ```
 
+It's also possible to set the method and/or the rounds:
+
+```
+---
+- hosts: localhost
+  roles:
+        - nukestation
+  vars:
+        nukestation_method: quick
+        nukestation_rounds: 2
+```
+ 
+
 ### Install nukestation with authentication mailrelay:
 
 The following playbook will install nukestation together with a freshly installed postfix. All parameters are required to make this configuration working.
