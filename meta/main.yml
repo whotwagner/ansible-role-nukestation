@@ -1,0 +1,25 @@
+---
+
+dependencies: []
+
+galaxy_info:
+
+  author:              Wolfgang Hotwagner
+  description: >
+    Nukestation: This role installs nwipe on Debian and places a udev-rule so that plugged usb-storages will be wiped automatically.
+  license: GPLv2
+  min_ansible_version: 2.1.0
+  platforms:
+    - name: Debian
+      versions:
+        - stretch
+        - jessie
+  categories:
+    - system
+    - debian
+    - ubuntu
+    - security
+    - wipe
+    - dban
+    - nwipe
+    - raspbian
