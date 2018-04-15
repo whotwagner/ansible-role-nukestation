@@ -113,7 +113,7 @@ The following playbook will install nukestation together with a freshly installe
 
 ```
 
-# Stopping a running wipetask
+## Stopping a running wipetask
 
 Consider using systemd for stopping/canceling running tasks:
 
