@@ -1,0 +1,10 @@
+[Unit]
+Description=Wipes hard drives
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/nukestation.sh %I
+
+[Install]
+WantedBy=multi-user.target
+
